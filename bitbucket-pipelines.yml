@@ -1,0 +1,27 @@
+# This is an example Starter pipeline configuration
+# Use a skeleton to build, test and deploy using manual and parallel steps
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+
+
+
+
+pipelines:
+  custom:
+   custom-pipeline:
+    - step: 
+        name: Deploy to test
+        deployment: test
+        script:
+          - pipe: rupareddy5out/deploy:master
+            variables:
+                INPUT_ACTION: 'upload'
+                APP_LOCATION: '/opt/atlassian/pipelines/agent/build/src'
+                OUTPUT_LOCATION: '/opt/atlassian/pipelines/agent/build'
+                API_LOCATION: '/opt/atlassian/pipelines/agent/build/api'
+                API_TOKEN: $deployment_token
+          
+          
+         
+          
+          

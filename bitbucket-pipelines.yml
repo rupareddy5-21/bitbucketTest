@@ -9,17 +9,30 @@
 pipelines:
   custom:
    custom-pipeline:
+    - variables: 
+      - name: INPUT_ACTION
+        default: "upload"
     - step: 
         name: Deploy to test
         deployment: test
         script:
-          - pipe: rupareddy5out/deploy_custom:master
-            variables:
-                INPUT_ACTION: 'upload'
-                APP_LOCATION: '/opt/atlassian/pipelines/agent/build/src'
-                OUTPUT_LOCATION: '/opt/atlassian/pipelines/agent/build'
-                API_LOCATION: '/opt/atlassian/pipelines/agent/build/api'
-                API_TOKEN: $deployment_token
+          - if [[ ! -z "$APP_LOCATION" ]];
+            then 
+                APP="--app $APP_LOCATION "
+            fi
+          - if [[ ! -z "$API_LOCATION" ]];
+            then
+                API="--api $API_LOCATION "
+            fi
+
+          - if [[ ! -z "$OUTPUT_LOCATION" ]];
+            then
+                OUTPUT="--outputLocation $OUTPUT_LOCATION "
+            fi
+
+          - ARG=$APP$API$OUTPUT
+          - cd /bin/staticsites/
+          - ./StaticSitesClient --deploymentaction $INPUT_ACTION --apiToken $deployment_token "$ARG"
           
           
          

@@ -18,6 +18,7 @@ pipelines:
                 INPUT_ACTION: 'upload'
                 APP_LOCATION: '/opt/atlassian/pipelines/agent/build/src'
                 API_LOCATION: '/opt/atlassian/pipelines/agent/build/api'
+                OUTPUT_LOCATION: '/opt/atlassian/pipelines/agent/build'
                 API_TOKEN: $deployment_token
           
           

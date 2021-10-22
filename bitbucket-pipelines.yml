@@ -16,7 +16,7 @@ pipelines:
           - pipe: rupareddy5out/deploy_custom:master
             variables:
                 INPUT_ACTION: 'upload'
-                APP_LOCATION: 'src'
+                APP_LOCATION: '/src'
                 API_LOCATION: '/opt/atlassian/pipelines/agent/build/api'
                 OUTPUT_LOCATION: '/opt/atlassian/pipelines/agent/build'
                 API_TOKEN: $deployment_token

@@ -17,6 +17,7 @@ pipelines:
             variables:
                 INPUT_ACTION: 'upload'
                 APP_LOCATION: '/opt/atlassian/pipelines/agent/build/src'
+                API_LOCATION: '/opt/atlassian/pipelines/agent/build/api'
                 API_TOKEN: $deployment_token
           
           

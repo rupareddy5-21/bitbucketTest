@@ -16,8 +16,8 @@ pipelines:
           - pipe: rupareddy5out/deploy_custom:master
             variables:
                 APP_LOCATION: '$BITBUCKET_CLONE_DIR/src'
-                API_LOCATION: '/opt/atlassian/pipelines/agent/build/api'
-                OUTPUT_LOCATION: '/opt/atlassian/pipelines/agent/build'
+                API_LOCATION: '$BITBUCKET_CLONE_DIR/api'
+                OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR'
                 API_TOKEN: $deployment_token
           
           

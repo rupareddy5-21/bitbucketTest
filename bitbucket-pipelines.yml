@@ -15,9 +15,8 @@ pipelines:
         script:
           - pipe: rupareddy5out/deploy_custom:master
             variables:
-                APP_LOCATION: '$BITBUCKET_CLONE_DIR/src'
-                API_LOCATION: '$BITBUCKET_CLONE_DIR/api'
-                OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR'
+                APP_LOCATION: 'src'
+                API_LOCATION: 'api'
                 API_TOKEN: $deployment_token
                 
           

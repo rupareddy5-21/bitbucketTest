@@ -20,6 +20,8 @@ pipelines:
                 OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR'
                 API_TOKEN: $deployment_token
                 DEPLOYMENT_ENV: "staging"
+                SKIP_APP_BUILD: 'true'
+                SKIP_API_BUILD: 'true'
               
                 
           

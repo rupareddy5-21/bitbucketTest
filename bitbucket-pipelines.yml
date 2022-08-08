@@ -13,7 +13,7 @@ pipelines:
         name: Deploy to test
         deployment: test
         script:
-          - pipe: rupareddy5/azure-static-web-apps-deploy:main
+          - pipe: rupareddy5/deploy-test:main
             variables:
                 APP_LOCATION: '$BITBUCKET_CLONE_DIR/src'
                 API_LOCATION: '$BITBUCKET_CLONE_DIR/api'
@@ -21,6 +21,7 @@ pipelines:
                 API_TOKEN: $deployment_token
                 DEPLOYMENT_ENV: 'test'
                 SKIP_API_BUILD: 'true'
+                IS_STATIC_EXPORT: 'true'
               
                 
           

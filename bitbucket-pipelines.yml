@@ -18,7 +18,7 @@ pipelines:
                 APP_LOCATION: '$BITBUCKET_CLONE_DIR/src'
                 API_TOKEN: $deployment_token
                 DEPLOYMENT_ENV: 'test1'
-                APP_BUILD_COMMAND: echo works
+                APP_BUILD_COMMAND: echo "works"
               
                 
           

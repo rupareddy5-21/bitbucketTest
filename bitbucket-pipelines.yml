@@ -13,15 +13,12 @@ pipelines:
         name: Deploy to test
         deployment: test
         script:
-          - pipe: rupareddy5/deploy-test:main
+          - pipe: rupareddy5/deploy-new:main
             variables:
                 APP_LOCATION: '$BITBUCKET_CLONE_DIR/src'
-                API_LOCATION: '$BITBUCKET_CLONE_DIR/api'
-                OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR'
                 API_TOKEN: $deployment_token
                 DEPLOYMENT_ENV: 'test1'
-                SKIP_API_BUILD: 'true'
-                IS_STATIC_EXPORT: 'false'
+                APP_BUILD_COMMAND: npm run build
               
                 
           
